@@ -1,0 +1,36 @@
+import java.util.*;
+class HelloWorld {
+    public static int[] nextgreaterelement(int[] nums , int n){
+         int[] ans = new int[n];
+        if(n==0){
+            return ans;
+        }
+        Stack<Integer> s = new Stack<>();
+        s.push(nums[n-1]);
+        for(int i = n-1; i>=0 ; i--){
+            if(nums[i]<s.peek()){
+                ans[i]=s.peek();
+            }
+            else{
+                while(s.size()>0 && s.peek()<=nums[i]){
+                    s.pop();
+                }
+                ans[i]=s.size()>0?s.peek():-1;
+            }
+            s.push(nums[i]);
+        }
+        return ans;
+    }
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for(int i = 0; i<n ; i++){
+            nums[i] = sc.nextInt();
+        }
+        int[] result = nextgreaterelement(nums, n);
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
