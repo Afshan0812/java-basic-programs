@@ -1,0 +1,26 @@
+import java.util.*;
+class HelloWorld {
+    public static int findrangesum(int[] arr , int n , int l,int r){
+        int[] prefsum = new int[n];
+        for(int i=1;i<n;i++ ){
+            arr[i]+=arr[i-1];
+        }
+        int Sum = arr[r]-arr[l-1];
+        return Sum;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n+1];
+        System.out.println("Enter the elements : ");
+        for(int i=1;i<=n;i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Eneter the range : ");
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        System.out.println(findrangesum(arr,n,l ,r));
+        
+    }
+}
