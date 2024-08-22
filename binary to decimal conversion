@@ -1,0 +1,28 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String ans ="";
+		int bitLength = 4;
+		if(n==0){
+		    System.out.print("0000");
+		}
+		if(n==1){
+		    System.out.print("1111");
+		}
+		while(n>0){
+		    if((n&1)==1){
+		        ans = '1'+ans;
+		    }
+		    else{
+		        ans = '0'+ans;
+		    }
+		    n = n>>1;
+		}
+	  while(ans.length()<bitLength){
+	      ans = '0'+ans;
+	  }
+	  System.out.println(ans);
+    }
+}
