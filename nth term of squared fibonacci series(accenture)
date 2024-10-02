@@ -1,0 +1,22 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare {
+    public static int fibo(int n){
+        int a=1;
+        int b=1;
+        int sum = 1;
+        for(int i=2;i<=n;i++){
+            int c = (b*b)+(a*a);
+            a=b;
+            b=c;
+        }
+        return b%47;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the value of n :  ");
+        int n = sc.nextInt();
+        System.out.println(fibo(n));
+    }
+}
