@@ -1,0 +1,29 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static String largestword(String input){
+        String  largestword = "";
+        int largestlen = 0;
+        int start =0;
+        for(int end=0;end<=input.length();end++){
+            if(end==input.length()||input.charAt(end)=='.'||input.charAt(end)==' '){
+                String word = input.substring(start,end).trim();
+                if(word.length()>largestlen){
+                    largestlen = word.length();
+                    largestword = word;
+                }
+                start = end +1;
+            }
+
+        }
+        return largestword;
+
+    }
+    public static void main(String[] args){
+        Scanner sc  = new Scanner(System.in);
+        String input = sc.nextLine();
+        System.out.println(largestword(input));
+
+    }
+}
