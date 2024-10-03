@@ -1,0 +1,27 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static String evenoddstr(int n ,int[] arr){
+        StringBuilder ans = new StringBuilder();
+        for (int j : arr) {
+            if ((j % 2) == 0) {
+                ans.append("even");
+            } else {
+                ans.append("odd");
+            }
+        }
+        return ans.toString();
+
+    }
+    public static void main(String[] args){
+        Scanner sc  = new Scanner(System.in);
+        System.out.println("Enter the number of elements in array: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]= sc.nextInt();
+        }
+        System.out.println(evenoddstr(n,arr));
+    }
+}
