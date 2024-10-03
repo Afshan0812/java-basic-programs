@@ -1,0 +1,46 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static int coconutsweet(int n, int e,int d){
+        if(n==0){
+            return -1;
+        }
+        if(d==0||e==0){
+            return 0;
+        }
+        if(d<7){
+            return d/n;
+        }
+        if(n*6<e*7){
+            return -1;
+        }
+        int weeks = d/7;
+        int days = d%7;
+        int ans = 0;
+        if((weeks*e*7)%n==0) {
+            ans += (weeks * e * 7) / n;
+        }else{
+            ans+=((weeks*e*7)/n)+1;
+        }
+        int left = (ans*n)-(weeks*e*7);
+        int req = (days*e)-left;
+        if(req%n==0){
+            ans+=req/n;
+        }else{
+            ans+=(req/n)+1;
+        }
+        return ans;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the no. of sweets per box : ");
+        int n = sc.nextInt();
+        System.out.println("Enter the number of sweets eaten per day: ");
+        int e = sc.nextInt();
+        System.out.println("Enter the number of days: ");
+        int d = sc.nextInt();
+        System.out.println("Minimum number of Boxes: " +coconutsweet(n,e,d));
+
+    }
+}
