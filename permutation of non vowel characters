@@ -1,0 +1,39 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static boolean  isVowel(char c){
+        return "AEIOUaeiou".indexOf(c)!=-1;
+    }
+    public static long factorial(int n) {
+        if (n <= 1) return 1;
+        else {
+            return n * factorial(n - 1);
+        }
+    }
+    public static long countPermutations(String str) {
+        Map<Character, Integer> freqMap = new HashMap<>();
+        StringBuilder sb = new StringBuilder();
+        for (char c : str.toCharArray()) {
+            if(!isVowel(c)) {
+                freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+                sb.append(c);
+            }
+        }
+        String s = sb.toString();
+        int n = s.length();
+        long totalPermutation = factorial(n);
+        for(int freq:freqMap.values()) {
+            if (freq > 1) {
+                totalPermutation /= factorial(freq);
+            }
+        }
+        return totalPermutation;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        long permutationcount = countPermutations(str);
+        System.out.println(permutationcount);
+    }
+}
