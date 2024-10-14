@@ -1,0 +1,22 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static HashMap<Character,Integer> CalculateFrequency(String str){
+        str = str.replaceAll(" ","");
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(char ch : str.toCharArray()){
+            map.put(ch,map.getOrDefault(ch,0)+1);
+
+        }
+        return map;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        HashMap<Character,Integer> frequencies = CalculateFrequency(str);
+        for(Map.Entry<Character,Integer> entry: frequencies.entrySet()){
+            System.out.println(entry.getKey()+","+entry.getValue());
+        }
+    }
+}
