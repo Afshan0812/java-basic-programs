@@ -1,0 +1,26 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static boolean perfectnumber(int n){
+        int sum = 1;
+        if(n<=1){
+            return false;
+        }
+        for(int i=2;i*i<=n;i++){
+            if(n%i==0){
+                sum+=i;
+                if(i!=n/i){
+                    sum+=n/i;
+                }
+            }
+        }
+        return sum==n;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number: ");
+        int n = sc.nextInt();
+        System.out.println(perfectnumber(n));
+    }
+}
