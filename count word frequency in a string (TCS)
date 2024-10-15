@@ -1,0 +1,25 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static void countwordfrequency(String input){
+        String[] words = input.split(" ");
+        HashMap<String,Integer> map =  new HashMap<>();
+        for(String word : words){
+            if(word.chars().allMatch(Character::isLetter)){
+                word = Character.toUpperCase(word.charAt(0))+word.substring(1);
+                map.put(word, map.getOrDefault(word,0)+1);
+            }
+        }
+        for(Map.Entry<String,Integer> entry : map.entrySet()){
+            System.out.print(entry.getKey()+entry.getValue());
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string: ");
+        String input = sc.nextLine();
+        countwordfrequency(input);
+        sc.close();
+    }
+}
