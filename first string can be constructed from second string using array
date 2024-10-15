@@ -1,0 +1,26 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static int canbeconstructed (String str1 , String str2){
+        int[] charcount = new int[26];
+        for(char ch : str2.toCharArray()){
+            charcount[ch-'a']++;
+        }
+        for(char ch : str1.toCharArray()){
+            if(charcount[ch-'a']==0){
+                return 0;
+            }
+            charcount[ch-'a']--;
+        }
+        return 1;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string: ");
+        String str1 = sc.nextLine();
+        System.out.println("Enter the second string: ");
+        String str2 = sc.nextLine();
+        System.out.println(canbeconstructed(str1 , str2));
+    }
+}
