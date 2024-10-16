@@ -1,0 +1,20 @@
+package accenture;
+import java.util.*;
+
+public class fibosquare{
+    public static int uniquedigits(int n){
+       HashSet<Integer> unique = new HashSet<>();
+       while(n>0){
+           int digit = n%10;
+           unique.add(digit);
+           n=n/10;
+       }
+       return unique.size();
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number: ");
+        int n = sc.nextInt();
+        System.out.println(uniquedigits(n));
+    }
+}
