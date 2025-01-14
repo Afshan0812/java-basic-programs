@@ -1,0 +1,26 @@
+package accenture;
+import java.util.*;
+
+public class delloite {
+    public static int numberofbinarysubstrings(String s1) {
+        HashMap<Integer,Integer> balanceMap = new HashMap<>();
+        balanceMap.put(0,1);
+        int count = 0;
+        int balance = 0;
+        for(char c:s1.toCharArray()){
+            balance+=(c=='1')?1:-1;
+            count+=balanceMap.getOrDefault(balance,0);
+            balanceMap.put(balance,balanceMap.getOrDefault(balance,0)+1);
+
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the  string : ");
+        String s1 = sc.nextLine();
+        int n = numberofbinarysubstrings(s1);
+        System.out.println(n);
+    }
+}
