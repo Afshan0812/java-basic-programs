@@ -1,0 +1,35 @@
+public class delloite {
+    public static int numberofsalutes(String s1) {
+        int salutes = 0;
+        int leftFacing = 0;
+        int rightFacing=0;
+
+        for (char soldier : s1.toCharArray()) {
+            if (soldier == '>'&& leftFacing==0) {
+                // Increment the count of soldiers facing right
+                rightFacing++;
+            }
+            else if (soldier =='>'&&leftFacing>0) {
+                // Soldiers facing left meet all currently counted right-facing soldiers
+               salutes++;
+               leftFacing--;
+                }
+            else if(soldier=='<'&& rightFacing==0){
+                leftFacing++;
+            }
+            else if(soldier=='<'&& rightFacing>0){
+                salutes++;
+                rightFacing--;
+            }
+            }
+        return salutes;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the  string : ");
+        String s1 = sc.nextLine();
+        int n = numberofsalutes(s1);
+        System.out.println(n);
+    }
+}
