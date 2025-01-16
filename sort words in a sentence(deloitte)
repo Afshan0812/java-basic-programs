@@ -1,0 +1,29 @@
+package accenture;
+import java.util.*;
+
+public class delloite {
+    public static String SortSentence(String s1){
+        String[] words = s1.split(" ");
+        String[] sortedwords =  new String[words.length];
+        for(String word:words){
+            int position = extractnumber(word);
+            sortedwords[position] = word;
+        }
+        return String.join(" ",sortedwords);
+    }
+    public static int extractnumber(String word){
+    for(char c : word.toCharArray()) {
+        if(Character.isDigit(c)){
+            return c-0;
+        }
+        }
+       return -1;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the  string : ");
+        String s1 = sc.nextLine();
+        String sortedsentence = SortSentence(s1);
+        System.out.println(sortedsentence );
+    }
+}
