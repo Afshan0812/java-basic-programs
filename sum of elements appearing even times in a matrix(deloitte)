@@ -1,0 +1,38 @@
+package accenture;
+import java.util.*;
+
+public class delloite {
+    public static int eventimesnumbersum(int[][] m1, int x, int y) {
+        int sum=0;
+        HashMap<Integer, Integer> frequency = new HashMap<>();
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                frequency.put(m1[i][j], frequency.getOrDefault(m1[i][j], 0) + 1);
+            }
+        }
+        for(HashMap.Entry<Integer,Integer> entry:frequency.entrySet()){
+            if(entry.getValue()%2==0){
+                sum = sum+(entry.getKey()*entry.getValue());
+            }
+
+        }
+        return sum;
+    }
+
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter number of rows :");
+        int x = sc.nextInt();
+        System.out.println("Enter number of colums: ");
+        int y = sc.nextInt();
+        int[][] m1 = new int[x][y];
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                m1[i][j] = sc.nextInt();
+            }
+        }
+        int result = eventimesnumbersum( m1, x,  y);
+        System.out.println("Sum of numbers that appear even times: "+result);
+    }
+}
